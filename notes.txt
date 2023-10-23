@@ -1,0 +1,133 @@
+
+.slideshow-contents > img{
+   margin-right: 20px;
+   width: 100%;
+   max-width: 640px;
+   height: auto;
+   display: hidden;
+}
+
+button{
+   cursor: pointer;
+   width: auto;
+   color: white;
+   background-color: transparent;
+   border: none;
+   font-size: 45px;
+   background-color: rgba(0, 0, 0, .2);
+   z-index: 2;
+}
+.forward{
+   right: 0;
+   margin-left: 591px;
+}
+.dot{
+   float: right;
+   margin: 4px;
+   cursor: pointer;
+   height: 8px;
+   width: 8px;
+   border-radius: 50%;
+   color: white;
+   background-color: rgb(255, 255, 255);
+   right: 0;
+}
+
+buttons.forEach(button => {
+    button.addEventListener("click",() =>{
+        
+        
+    })
+
+})
+
+/*
+.slideshow .slideshow-contents img:not(.active){
+   top: 0;
+   left: -100%;
+}
+.slideshow .slideshow-contents img{
+   width: 100%;
+   max-width: 640px;
+}
+.slideshow .slideshow-contentsvisible{
+   display: block;
+}
+.slideshow .slideshow-actions{
+   display: flex;
+   width: 94%;
+   justify-content: space-between;
+   position: absolute;
+   top: 50%;
+   transform: translateY(-30%);
+} */
+
+<a href="javascript:alert('Only Disney has the rights to this media');"><img src='top-carousel/tiana.jpeg' id='lastClone' alt="the princess and the frog logo"></a>
+            <a href="javascript:alert('Only Disney has the rights to this media');"><img src='top-carousel/ahsoka.png' alt="ahsoka logo"></a>
+            <a href="javascript:alert('Only Disney has the rights to this media');"><img src='top-carousel/hamilton.jpeg' alt="hamilton logo"></a>
+            <a href="javascript:alert('Only Disney has the rights to this media');"><img src='top-carousel/handy manny.png' alt="handy manny logo"></a>
+            <a href="javascript:alert('Only Disney has the rights to this media');"><img src='top-carousel/limitless.jpeg' alt="limitless logo"></a>
+            <a href="javascript:alert('Only Disney has the rights to this media');"><img src='top-carousel/lost in the arctic.png' alt="lost in the arctic logo"></a>
+            <a href="javascript:alert('Only Disney has the rights to this media');"><img src='top-carousel/mickey mouse.jpeg' alt="mickey mouse clubhouse logo"></a>
+            <a href="javascript:alert('Only Disney has the rights to this media');"><img src='top-carousel/the simpons.jpeg' alt="the simpsons logo"></a>
+            <a href="javascript:alert('Only Disney has the rights to this media');"><img src='top-carousel/tiana.jpeg' id="firstClone" alt="the princess and the frog logo"></a>
+
+
+
+
+
+</div>
+        <!--Buttons-->
+        <a><button class="back" id="backBtn">&#8249;</button></a>
+        <a><button class="forward" id="forwardBtn">&#8250;</button></a>
+        <!--Dots-->
+
+
+
+
+
+<div class="dot-collection">
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot" onclick="currentSlide(2)"></span>
+            <span class="dot" onclick="currentSlide(3)"></span>
+            <span class="dot" onclick="currentSlide(4)"></span>
+            <span class="dot" onclick="currentSlide(5)"></span>
+            <span class="dot" onclick="currentSlide(6)"></span>
+            <span class="dot" onclick="currentSlide(7)"></span>
+            <span class="dot" onclick="currentSlide(8)"></span>
+        </div>
+    </div>
+
+
+
+
+
+
+const APILink = 'https://api.themoviedb.org/3/movie/550?api_key=0165d7b5feb52aacd18499e32610561d&page=1';
+const IMGPath = 'https://image.tmdb.org/t/p/w1280';
+const searchAPI = "https://api.themoviedb.org/3/movie/550?api_key=0165d7b5feb52aacd18499e32610561d&query=";
+
+const main = document.getElementById("section");
+const form = document.getElementById("form");
+const search = document.getElementById("query");
+
+returnMovies(APILink)
+function returnMovies(url){
+    fetch(url).then(res => res.json())
+    .then(function(data)) {
+        console.log(data.results);
+        data.results.forEach(element => {
+            const div_card = document.createElement('div');
+            const div_row = document.createElement('div');
+            const div_column = document.createElement('div');
+            const image = document.createElement('img');
+            const title = document.createElement('h3');
+            const center = document.createElement('center');
+
+            title.innerHTML= `${element.title}`;
+            image.src= IMGPath+ element.poster_path;
+
+            center.appendChild(image)
+    });
+    };
+}
